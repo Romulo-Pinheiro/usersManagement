@@ -43,22 +43,22 @@
 					<div class="row mb-3">
 						<div class="col">
 							<label for="inputFirstName" class="form-label">Nome</label>
-							<input id="inputFirstName" type="text" class="form-control" placeholder="Nome" aria-label="First name">
+							<input required id="inputFirstName" type="text" class="form-control" placeholder="Nome" aria-label="First name">
 						</div>
 						<div class="col">
 							<label for="inputLastName" class="form-label">Sobrenome</label>	
-							<input  id="inputLastName" type="text" class="form-control" placeholder="Sobrenome" aria-label="Last name">
+							<input required id="inputLastName" type="text" class="form-control" placeholder="Sobrenome" aria-label="Last name">
 						</div>
 					</div>
 
 					<div class="mb-3">
 					  <label for="inputEmail" class="form-label">Endereço de E-mail</label>
-					  <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="example@domain.com">
+					  <input required type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" placeholder="example@domain.com">
 					  <div id="emailHelp" class="form-text">Nós não compartilharemos este e-mail com terceiros</div>
 					</div>
 					<div class="mb-3">
 					  <label for="inputPassword" class="form-label">Senha</label>
-					  <input type="password" class="form-control" id="inputPassword" placeholder="********">
+					  <input required  minlength="6" type="password" class="form-control" id="inputPassword" placeholder="********">
 					</div>
 					<div class="mb-3">
 						<label for="selectStatus" class="form-label">Status</label>

@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema({
 		type: Boolean,
 		required: true,
 	},
+	dateCreated: {
+		type: Date,
+		required: true,
+	},
 });
 
 const UserModel = mongoose.model("User", userSchema);

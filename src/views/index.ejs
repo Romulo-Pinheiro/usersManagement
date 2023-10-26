@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include("./partials/head.ejs") %>
+	<body>
+		<%- include("./partials/header.ejs") %>
+
+		<main>
+			<% if (users.length > 0){ %>
+			<div class="container mt-4">
+				<div class="row">
+			<% users.forEach(user => { %>
+				
+					<div class="col-auto mb-3">
+						<div class="card text-center" style="width: 15rem">
+							<img
+								src="assets/user-icon.png"
+								class="card-img-top mx-auto"
+								alt="..."
+							/>
+							<div class="card-body">
+								<h5 class="card-title"> <%= user.firstName %> <%= user.lastName %> </h5>
+								<p class="card-text"><%= user._id %></p>
+							</div>
+							<ul class="list-group list-group-flush">
+								<li class="list-group-item"><%= user.email %> </li>
+								<li class="list-group-item"><%= user.active ? 'Ativo' : 'Inativo' %> </li>
+								<li class="list-group-item">Data de Criação: <%= user.dateCreated.toLocaleDateString() %> </li>
+							</ul>
+							<div class="card-body">
+								<a href="#" class="card-link">Editar</a>
+								<a href="#" class="card-link">Deletar</a>
+							</div>
+						</div>
+					</div>
+				
+			<% }) %>
+				</div>
+			</div>
+			<% } else { %>
+
+			<% }%>
+			
+		
+		</main>
+
+		<%- include("./partials/scripts.ejs") %>
+	</body>
+</html>

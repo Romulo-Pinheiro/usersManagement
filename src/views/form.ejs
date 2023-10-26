@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include("./partials/head.ejs") %>
+	<body>
+		<header>
+			<nav class="navbar navbar-expand-lg bg-body-tertiary">
+				<div class="container-fluid">
+					<a class="navbar-brand" href="#">Users Management</a>
+					<button
+						class="navbar-toggler"
+						type="button"
+						data-bs-toggle="collapse"
+						data-bs-target="#navbarNav"
+						aria-controls="navbarNav"
+						aria-expanded="false"
+						aria-label="Toggle navigation"
+					>
+						<span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarNav">
+						<ul class="navbar-nav">
+							<li class="nav-item">
+								<a class="nav-link active" aria-current="page" href="#">Home</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Criar Usuário</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</nav>
+		</header>
+
+		<main>
+			<div class="container bg-body-tertiary mt-4">
+				<form class="p-5">
+					<div class="row mb-3">
+						<div class="col">
+							<label for="inputFirstName" class="form-label">Nome</label>
+							<input
+								required
+								id="inputFirstName"
+								type="text"
+								class="form-control"
+								placeholder="Nome"
+								aria-label="First name"
+							/>
+						</div>
+						<div class="col">
+							<label for="inputLastName" class="form-label">Sobrenome</label>
+							<input
+								required
+								id="inputLastName"
+								type="text"
+								class="form-control"
+								placeholder="Sobrenome"
+								aria-label="Last name"
+							/>
+						</div>
+					</div>
+
+					<div class="mb-3">
+						<label for="inputEmail" class="form-label"
+							>Endereço de E-mail</label
+						>
+						<input
+							required
+							type="email"
+							class="form-control"
+							id="inputEmail"
+							aria-describedby="emailHelp"
+							placeholder="example@domain.com"
+						/>
+						<div id="emailHelp" class="form-text">
+							Nós não compartilharemos este e-mail com terceiros
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="inputPassword" class="form-label">Senha</label>
+						<input
+							required
+							minlength="6"
+							type="password"
+							class="form-control"
+							id="inputPassword"
+							placeholder="********"
+						/>
+					</div>
+					<div class="mb-3">
+						<label for="selectStatus" class="form-label">Status</label>
+						<select
+							id="selectStatus"
+							class="form-select"
+							aria-label="Default select example"
+						>
+							<option value="active">Ativo</option>
+							<option value="inactive">Inativo</option>
+						</select>
+					</div>
+					<button type="submit" class="btn btn-primary">Enviar</button>
+				</form>
+			</div>
+		</main>
+
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+			integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+			integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+			crossorigin="anonymous"
+		></script>
+	</body>
+</html>

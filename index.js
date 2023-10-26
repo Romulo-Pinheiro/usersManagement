@@ -9,8 +9,14 @@ dotenv.config();
 connectToDb();
 
 app.use(express.json());
-/*app.set("view engine", "ejs")
-app.set("views", "views")*/
+app.use(express.static(__dirname + "/src/public"));
+app.set("view engine", "ejs");
+app.set("views", "src/views");
+
+app.get("/", async (req, res) => {
+	const users = await UserModel.find({});
+	res.render("index", { users });
+});
 
 app.get("/users", async (req, res) => {
 	try {

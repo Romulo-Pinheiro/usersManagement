@@ -21,7 +21,7 @@ app.get("/", async (req, res) => {
 });
 
 app.get("/cadastro", async (req, res) => {
-	res.render("form");
+	res.render("register");
 });
 
 app.get("/users", async (req, res) => {

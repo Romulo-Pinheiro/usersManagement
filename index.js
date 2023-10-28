@@ -8,6 +8,7 @@ const port = 8080;
 dotenv.config();
 connectToDb();
 
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static(__dirname + "/src/public"));
 app.set("view engine", "ejs");
@@ -15,7 +16,12 @@ app.set("views", "src/views");
 
 app.get("/", async (req, res) => {
 	const users = await UserModel.find({});
-	res.render("index", { users });
+	const message = req.query.message;
+	res.render("index", { users, message });
+});
+
+app.get("/cadastro", async (req, res) => {
+	res.render("form");
 });
 
 app.get("/users", async (req, res) => {
@@ -39,8 +45,8 @@ app.get("/users/:id", async (req, res) => {
 
 app.post("/users", async (req, res) => {
 	try {
-		const user = await UserModel.create(req.body);
-		res.status(201).json(user);
+		await UserModel.create(req.body);
+		res.status(201).redirect("/?message=registered");
 	} catch (error) {
 		return res.status(500).send(error.message);
 	}

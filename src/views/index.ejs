@@ -27,8 +27,8 @@
 								<li class="list-group-item">Data de Criação: <%= user.dateCreated.toLocaleDateString() %> </li>
 							</ul>
 							<div class="card-body">
-								<a href="#" class="card-link">Editar</a>
-								<a href="#" class="card-link">Deletar</a>
+								<a href=<%= `edit/${user._id}`  %> class="card-link">Editar</a>
+								<a href=<%= `delete/${user._id}`  %> class="card-link">Deletar</a>
 							</div>
 						</div>
 					</div>
@@ -42,6 +42,22 @@
 			
 		
 		</main>
+
+		<script type="text/javascript">
+			const message = '<%= message %>'
+			switch(message){
+				case 'registered':
+					alert("Usuário criado com sucesso")
+					break
+
+				case 'updated':
+					alert("Usuário alterado com sucesso")
+					break
+
+				case 'deleted':
+					alert("Usuário deletado com sucesso")
+			}
+		</script>
 
 		<%- include("./partials/scripts.ejs") %>
 	</body>

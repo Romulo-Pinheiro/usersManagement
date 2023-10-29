@@ -8,8 +8,8 @@
 			<% if (users.length > 0){ %>
 			<div class="container mt-4">
 				<div class="row">
-			<% users.forEach(user => { %>
-				
+					<% users.forEach(user => { %>
+
 					<div class="col-auto mb-3">
 						<div class="card text-center" style="width: 15rem">
 							<img
@@ -18,44 +18,54 @@
 								alt="..."
 							/>
 							<div class="card-body">
-								<h5 class="card-title"> <%= user.firstName %> <%= user.lastName %> </h5>
+								<h5 class="card-title">
+									<%= user.firstName %> <%= user.lastName %>
+								</h5>
 								<p class="card-text"><%= user._id %></p>
 							</div>
 							<ul class="list-group list-group-flush">
-								<li class="list-group-item"><%= user.email %> </li>
-								<li class="list-group-item"><%= user.active ? 'Ativo' : 'Inativo' %> </li>
-								<li class="list-group-item">Data de Criação: <%= user.dateCreated.toLocaleDateString() %> </li>
+								<li class="list-group-item"><%= user.email %></li>
+								<li class="list-group-item">
+									<%= user.active ? 'Ativo' : 'Inativo' %>
+								</li>
+								<li class="list-group-item">
+									Data de Criação: <%= user.dateCreated.toLocaleDateString() %>
+								</li>
 							</ul>
 							<div class="card-body">
-								<a href="<%= `edit/${user._id}`  %>" class="card-link">Editar</a>
-								<a href="<%= `delete/${user._id}`  %>" class="card-link">Deletar</a>
+								<a href="<%= `edit/${user._id}`  %>" class="card-link"
+									>Editar</a
+								>
+								<!-- <a href="<%= `delete/${user._id}`  %>" class="card-link">Deletar</a> -->
+								<button
+									value="<%= user._id %>"
+									class="card-link btn btn-outline-primary"
+								>
+									Deletar
+								</button>
 							</div>
 						</div>
 					</div>
-				
-			<% }) %>
+
+					<% }) %>
 				</div>
 			</div>
-			<% } else { %>
-				<%- include("./partials/message.ejs") %>
-			<% }%>
-			
-		
+			<% } else { %> <%- include("./partials/message.ejs") %> <% }%>
 		</main>
 
 		<script type="text/javascript">
-			const message = '<%= message %>'
-			switch(message){
-				case 'registered':
-					alert("Usuário criado com sucesso")
-					break
+			const message = "<%= message %>";
+			switch (message) {
+				case "registered":
+					alert("Usuário criado com sucesso");
+					break;
 
-				case 'updated':
-					alert("Usuário alterado com sucesso")
-					break
+				case "updated":
+					alert("Usuário alterado com sucesso");
+					break;
 
-				case 'deleted':
-					alert("Usuário deletado com sucesso")
+				case "deleted":
+					alert("Usuário deletado com sucesso");
 			}
 		</script>
 

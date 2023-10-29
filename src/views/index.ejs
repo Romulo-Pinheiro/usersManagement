@@ -38,7 +38,7 @@
 								>
 								<button
 									value="<%= user._id %>"
-									class="card-link btn btn-outline-primary"
+									class="card-link btn btn-outline-primary btn-delete"
 								>
 									Deletar
 								</button>
@@ -57,16 +57,21 @@
 			switch (message) {
 				case "registered":
 					alert("Usuário criado com sucesso");
+					window.location.href = "/";
 					break;
 
 				case "updated":
 					alert("Usuário alterado com sucesso");
+					window.location.href = "/";
 					break;
 
 				case "deleted":
 					alert("Usuário deletado com sucesso");
+					window.location.href = "/";
 			}
 		</script>
+
+		<script src="/scripts/home.js"></script>
 
 		<%- include("./partials/scripts.ejs") %>
 	</body>

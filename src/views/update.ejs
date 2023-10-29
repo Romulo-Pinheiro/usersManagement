@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<%- include("./partials/head.ejs") %>
+	<body>
+		<%- include("./partials/header.ejs") %>
+
+		<main>
+			<div class="container bg-body-tertiary mt-4">
+				<form id="form-update" class="p-5">
+					<div class="row mb-3">
+						<div class="col">
+							<label for="inputFirstName" class="form-label">Nome</label>
+							<input
+								required
+								id="inputFirstName"
+								name="firstName"
+								value="<%= user.firstName %>"
+								type="text"
+								class="form-control"
+								placeholder="Nome"
+								aria-label="First name"
+							/>
+						</div>
+						<div class="col">
+							<label for="inputLastName" class="form-label">Sobrenome</label>
+							<input
+								required
+								id="inputLastName"
+								name="lastName"
+								value="<%= user.lastName %>"
+								type="text"
+								class="form-control"
+								placeholder="Sobrenome"
+								aria-label="Last name"
+							/>
+						</div>
+					</div>
+
+					<div class="mb-3">
+						<label for="inputEmail" class="form-label"
+							>Endereço de E-mail</label
+						>
+						<input
+							required
+							type="email"
+							class="form-control"
+							id="inputEmail"
+							name="email"
+							value="<%= user.email %>"
+							aria-describedby="emailHelp"
+							placeholder="example@domain.com"
+						/>
+						<div id="emailHelp" class="form-text">
+							Nós não compartilharemos este e-mail com terceiros
+						</div>
+					</div>
+					<div class="mb-3">
+						<label for="inputPassword" class="form-label">Senha</label>
+						<input
+							required
+							minlength="6"
+							type="password"
+							class="form-control"
+							id="inputPassword"
+							name="password"
+							value="<%= user.password%>"
+							placeholder="********"
+						/>
+					</div>
+					<div class="mb-3">
+						<label for="selectStatus" class="form-label">Status</label>
+						<select
+							id="selectStatus"
+							name="active"
+							class="form-select"
+							aria-label="Default select example"
+						>
+							<% if (user.active){ %>
+							<option value="true">Ativo</option>
+							<option value="false">Inativo</option>
+							<% } else { %>
+							<option value="false">Inativo</option>
+							<option value="true">Ativo</option>
+							<% } %>
+						</select>
+					</div>
+					<button type="submit" value="<%= user._id %>" class="btn btn-primary">
+						Editar
+					</button>
+				</form>
+			</div>
+		</main>
+
+		<script src="/scripts/update.js"></script>
+		<%- include("./partials/scripts.ejs") %>
+	</body>
+</html>

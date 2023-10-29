@@ -14,6 +14,8 @@ app.use(express.static(__dirname + "/src/public"));
 app.set("view engine", "ejs");
 app.set("views", "src/views");
 
+// Routes
+
 app.get("/", async (req, res) => {
 	const users = await UserModel.find({});
 	const message = req.query.message;
@@ -23,6 +25,14 @@ app.get("/", async (req, res) => {
 app.get("/cadastro", async (req, res) => {
 	res.render("register");
 });
+
+app.get("/edit/:id", async (req, res) => {
+	const id = req.params.id;
+	const user = await UserModel.findById(id);
+	res.render("update", { user });
+});
+
+// Breakpoints
 
 app.get("/users", async (req, res) => {
 	try {
@@ -55,8 +65,8 @@ app.post("/users", async (req, res) => {
 app.patch("/users/:id", async (req, res) => {
 	try {
 		const id = req.params.id;
-		const user = await UserModel.findByIdAndUpdate(id, req.body, { new: true });
-		res.status(200).json(user);
+		await UserModel.findByIdAndUpdate(id, req.body, { new: true });
+		res.status(200).json({ success: true });
 	} catch (error) {
 		return res.status(500).send(error.message);
 	}
